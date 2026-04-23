@@ -33,3 +33,25 @@ Filtrar por IP: tshark -i eth0 -Y "ip.addr == 8.8.8.8"
 Requisições GET: tshark -i eth0 -Y "http.request.method == GET"
 
 Insight: Erros de libEGL ao abrir o Wireshark gráfico no WSLg são apenas conflitos de renderização da GPU e não afetam a captura.
+
+---
+
+## 📖 Laboratório: Resolução de Nomes (DNS)
+
+O entendimento de DNS é crítico no dia a dia DevOps para configurar Service Discovery e Ingress.
+
+### 1. Investigando o Servidor Local
+* **Arquivo:** `/etc/resolv.conf`
+* **Comando:** `cat /etc/resolv.conf`
+
+### 2. Troubleshooting com `dig`
+Alvo: `amandareis.vercel.app`
+
+* **Consulta Padrão:** `dig amandareis.vercel.app`
+* **Saída Simplificada:** `dig amandareis.vercel.app +short`
+
+### 3. Principais Registros (Records)
+* **A:** IPv4 do domínio.
+* **CNAME:** Apelido/Alias (muito usado na Vercel).
+* **NS:** Servidores de autoridade.
+* **TXT:** Validação e segurança (SPF/DKIM).
